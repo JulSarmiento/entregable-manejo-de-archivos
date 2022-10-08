@@ -26,8 +26,9 @@ class Container {
   };
 
   /**
-   * returb product object
-   * @param {number} productId 
+   * 
+   * @param {num} productId 
+   * @returns object
    */
   async getbyId(productId){
     
@@ -59,7 +60,14 @@ class Container {
    * no return
    * @param {number} productId 
    */
-  deleteById(productId){
+  async deleteById(productId){
+    try{
+      const array = await readFiles(this.filename);
+      saveFiles(this.filename, array.filter(product => product.id !== productId));
+    }
+    catch (err) {
+      console.log(`No fue posible elimenar el producto: ${err}`)
+    }
 
   };
 

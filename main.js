@@ -16,5 +16,8 @@ const productExample = {
 // product.saveProduct(productExample)
 //     .then(console.log)
 
-product.getbyId(8)
-    .then(console.log);
+// product.getbyId(8)
+//     .then(console.log);
+
+product.deleteById(2)
+    .then(console.log("Elemento eliminado"))
