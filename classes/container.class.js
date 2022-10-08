@@ -1,3 +1,5 @@
 class Container {
-  constructor(name)
+  constructor(filename) {
+    this._filename = ``
+  }
 }
