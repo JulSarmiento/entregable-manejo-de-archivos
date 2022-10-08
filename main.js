@@ -12,3 +12,6 @@ const productExample = {
 
 product.getAll()
     .then(console.log);
+
+product.saveProduct(productExample)
+    .then(console.log)

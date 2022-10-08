@@ -4,15 +4,25 @@ const saveFiles = require("../utilities/saveFile");
 
 class Container {
   constructor(filename) {
-    this._filename = `db/${filename}.txt`;
+    this.filename = `db/${filename}.txt`;
   }
 
   /**
    * Retorna ID
    * @param {object} product 
    */
-  save(product){
+  async saveProduct(product){
+    const array = await this.getAll();
+    product.id = array.length > 0 ? array[array.length -1].id + 1 : 1;
 
+    try{
+      array.push(product);
+      saveFiles(this.filename, array);
+      return product.id;
+    }
+    catch (err) {
+      console.error(err);
+    }
   };
 
   /**
@@ -29,7 +39,7 @@ class Container {
    */
   async getAll(){
     try{
-      return await readFiles(this._filename);
+      return await readFiles(this.filename);
     }
     catch (err) {
       console.error(err);
