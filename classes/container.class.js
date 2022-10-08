@@ -29,7 +29,15 @@ class Container {
    * returb product object
    * @param {number} productId 
    */
-  getbyId(productId){
+  async getbyId(productId){
+    
+    try{
+      const array = await readFiles(this.filename);
+      return array.find(product => product.id === productId);
+    }
+    catch (err) {
+      console.error(`Elemento no encontrado, error: ${err}.`);
+    }
 
   };
 
