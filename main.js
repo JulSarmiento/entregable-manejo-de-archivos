@@ -13,11 +13,14 @@ const productExample = {
 // product.getAll()
 //     .then(console.log);
 
-// product.saveProduct(productExample)
-//     .then(console.log)
+product.saveProduct(productExample)
+    .then(console.log)
 
-// product.getbyId(8)
+// product.getbyId(2)
 //     .then(console.log);
 
-product.deleteById(2)
-    .then(console.log("Elemento eliminado"))
+// product.deleteById(2)
+//     .then(console.log("Elemento eliminado"));
+
+// product.deleteAll()
+//     .then(console.log("Todos los productos fueron eliminados"));

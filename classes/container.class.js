@@ -21,7 +21,7 @@ class Container {
       return product.id;
     }
     catch (err) {
-      console.error(err);
+      console.log(err);
     }
   };
 
@@ -37,7 +37,7 @@ class Container {
       return array.find(product => product.id === productId);
     }
     catch (err) {
-      console.error(`Elemento no encontrado, error: ${err}.`);
+      console.log(`Elemento no encontrado, error: ${err}.`);
     }
 
   };
@@ -51,7 +51,7 @@ class Container {
       return await readFiles(this.filename);
     }
     catch (err) {
-      console.error(err);
+      console.log(err);
     }
     
   };
@@ -74,8 +74,13 @@ class Container {
   /**
    * No return
    */
-  deleteAll(){
-
+  async deleteAll(){
+    try {
+      const data = await fs.promises.writeFile(this.filename, "");
+    }
+    catch (err) {
+      console.log(err);
+    }
   };
 }
 

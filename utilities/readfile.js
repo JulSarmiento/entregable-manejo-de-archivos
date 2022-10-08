@@ -11,7 +11,7 @@ async function readFiles (filename) {
         return !data ? [] : JSON.parse(data);
     }
     catch (err) {
-        console.error(err);
+        console.log(err);
     }
 }
 

@@ -11,7 +11,7 @@ async function saveFiles(filename, array) {
 
     }
     catch (err) {
-        console.error(err);
+        console.log(err);
     }
 }
 
