@@ -1,5 +1,18 @@
 const fs = require("fs");
 
-function saveFile(filename) {
+/**
+ * 
+ * @param {string} filename 
+ * @param {array} array 
+ */
+async function saveFiles(filename, array) {
+    try {
+        await fs.promises.writeFile(filename, JSON.stringify(array, null, 2));
 
+    }
+    catch (err) {
+        console.error(err);
+    }
 }
+
+module.exports = saveFiles
